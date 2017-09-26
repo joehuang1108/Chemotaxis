@@ -1,5 +1,5 @@
-Jumper bob = new Jumper ();
-Walker notbob = new Walker ();
+Red bob = new Red ();
+Blue notbob = new Blue ();
 void setup()
 {
   size(500,500);
@@ -9,23 +9,30 @@ void draw ()
 {
   background (0);
   bob.show();
-  bob.jump();
+  bob.redDot();
   notbob.show();
-  notbob.walk();
+  notbob.blueDot();
   
 }
-class Jumper 
+class Red 
 {
   int myX, myY;
-  Jumper()
+  Red()
   {
   myX=myY=250;
   
   }
-void jump ()
+void redDot ()
   {
-    myX = (int)(Math.random()*500);
-    myY = (int)(Math.random()*500);
+    if(mouseX > myX)
+      	myX = myX+ (int)((Math.random()*5)-1); //biased to right
+    else
+      	myX = myX+ (int)((Math.random()*5)-3); //biased to left
+
+  	if(mouseY > myY)
+  		 myY = myY+ (int)((Math.random()*5)-1); //biased to bottom
+  	else
+  		 myY = myY+ (int)((Math.random()*5)-3); //biased to top
   }
  void show ()
 {
@@ -33,20 +40,26 @@ void jump ()
   ellipse (myX, myY, 50 , 50);
 } 
 }
-class Walker 
+class Blue 
 {
   int myX, myY;
-  Walker()
+  Blue()
   {
   myX=myY=250;
   
   }
-   void walk ()
+   void blueDot ()
   {
     if(mouseX > myX)
-      myX = myX+ (int)((Math.random()*5)-1); //biased to right
+      	myX = myX+ (int)((Math.random()*5)-1); //biased to right
     else
-      myX = myX+ (int)((Math.random()*5)-3); //biased to left
+      	myX = myX+ (int)((Math.random()*5)-3); //biased to left
+
+  	if(mouseY > myY)
+  		 myY = myY+ (int)((Math.random()*5)-1); //biased to bottom
+  	else
+  		 myY = myY+ (int)((Math.random()*5)-3); //biased to top
+
   
   } 
 
