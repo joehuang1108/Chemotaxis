@@ -12,8 +12,16 @@ void draw ()
   bob.redDot();
   notbob.show();
   notbob.blueDot();
+
   
 }
+ void mousePressed()
+ {
+ 	bob.myX = (int)(Math.random()*500);
+ 	bob.myY = (int)(Math.random()*500);
+ 	notbob.myX = (int)(Math.random()*500);
+ 	notbob.myY = (int)(Math.random()*500);
+ }
 class Red 
 {
   int myX, myY;
